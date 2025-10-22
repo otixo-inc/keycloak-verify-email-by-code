@@ -45,6 +45,7 @@ import org.keycloak.sessions.AuthenticationSessionModel;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -111,7 +112,8 @@ public class VerifyEmailByCode implements RequiredActionProvider, RequiredAction
             return;
         }
         MultivaluedMap<String, String> formData = context.getHttpRequest().getDecodedFormParameters();
-        String emailCode = formData.getFirst(EMAIL_CODE);
+        List<String> emailCodes = formData.get(EMAIL_CODE);
+        String emailCode = String.join("", emailCodes);
 
         if (!code.equals(emailCode)) {
             createFormChallenge(context, new FormMessage(EMAIL_CODE, INVALID_CODE));
