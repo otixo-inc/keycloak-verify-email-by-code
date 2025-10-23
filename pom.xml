@@ -53,7 +53,7 @@
         <maven.source.plugin.version>3.3.0</maven.source.plugin.version>
         <maven.javadoc.plugin.version>3.5.0</maven.javadoc.plugin.version>
 
-        <keycloak.version>26.2.5</keycloak.version>
+        <keycloak.version>26.4.1</keycloak.version>
     </properties>
 
     <build>
